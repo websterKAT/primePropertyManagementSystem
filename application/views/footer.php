@@ -1,3 +1,5 @@
+	</div><!-- end container -->	
+	</div><!-- end wrapper -->
 	<div class="row-fluid footer">
 		<div class="footer-wrap">			
 			<div class="span6">
