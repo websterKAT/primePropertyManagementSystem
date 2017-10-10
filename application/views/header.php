@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <html lang="en-us">
 <head>
 	<title>Preperty Management pvt ltd</title>
@@ -26,7 +27,7 @@
 								<li><a href="">Houses</a></li>
 								<li><a href="">About Us</a></li>
 								<li><a href="<?php echo base_url(); ?>index.php/Home/showAddProperty">AddProperty</a></li>
-								<li><a href="">Sign in</a></li>
+								<li><a href="<?php echo base_url(); ?>index.php/Home/showSignIn">Sign in</a></li>
 								<li><a href="">Sign up</a></li>
 							</ul>
 						</div>				
