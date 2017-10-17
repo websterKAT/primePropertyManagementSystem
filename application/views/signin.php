@@ -46,14 +46,32 @@
                     <a class="hiddenanchor" id="tologin"></a>
                     <div id="wrapper">
                         <div id="login" class="animate form">
-                            <form  action="mysuperscript.php" autocomplete="on"> 
+                         <?php
+                            $success_msg= $this->session->flashdata('success_msg');
+                            $error_msg= $this->session->flashdata('error_msg');
+                            if($success_msg){
+                                ?>
+                                <div class="alert alert-success">
+                                    <?php echo $success_msg; ?>
+                                </div>
+                            <?php
+                        }
+                        if($error_msg){
+                        ?>
+                            <div class="alert alert-danger">
+                                <?php echo $error_msg; ?>
+                            </div>
+                        <?php
+                        }
+                        ?>
+                            <form  method="post" action="<?php echo base_url();?>index.php/Users/loginUser" autocomplete="on"> 
                                 <h1>Log in</h1> 
                                 <p> 
                                     <label for="username" class="uname" data-icon="u" > Your email or username </label>
                                     <input id="username" name="username" required="required" type="text" placeholder="myusername or mymail@mail.com"/>
                                 </p>
                                 <p> 
-                                    <label for="password" class="youpasswd" data-icon="p"> Your password </label>
+                                    <label for="password" class="password" data-icon="p"> Your password </label>
                                     <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" /> 
                                 </p>
                                 <p class="keeplogin"> 
@@ -71,7 +89,7 @@
                         </div>
 
                         <div id="register" class="animate form">
-                            <form  action="mysuperscript.php" autocomplete="on"> 
+                            <form  method="post" action="<?php echo base_url();?>index.php/Users/registerUser" autocomplete="on"> 
                                 <h1> Sign up </h1>
                                  <p> 
                                     <label for="fname" class="fname" data-icon="u">First Name </label>
@@ -83,7 +101,7 @@
                                 </p>
                                 <p> 
                                     <label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
-                                    <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="mysupermail@mail.com"/> 
+                                    <input id="emailsignup" name="email" required="required" type="email" placeholder="mysupermail@mail.com"/> 
                                 </p>
                                 <p> 
                                     <label for="tpno" class="tpno" data-icon="u">Telephone No </label>
@@ -93,16 +111,16 @@
 
                                 <p> 
                                     <label for="usernamesignup" class="uname" data-icon="u">Your username</label>
-                                    <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="mysuperusername690" />
+                                    <input id="usernamesignup" name="username" required="required" type="text" placeholder="mysuperusername690" />
                                 </p>
 
                                 <p> 
                                     <label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
-                                    <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                                    <input id="passwordsignup" name="password" required="required" type="password" placeholder="eg. X8df!90EO"/>
                                 </p>
                                 <p> 
                                     <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
-                                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                                    <input id="passwordsignup_confirm" name="confirmpassword" required="required" type="password" placeholder="eg. X8df!90EO"/>
                                 </p>
                                 <p class="signin button"> 
 									<input type="submit" value="Sign up"/> 
