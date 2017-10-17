@@ -1,4 +1,4 @@
-<form class="add-property">
+<?php echo form_open_multipart('Property/insertProperty');?>
 	<div class="form-group col-10" style="margin-top: 100px;">
 	    <label for="propertyType">Property Type</label>
 	    <select class="form-control" id="propertyType" name="propertyType">
@@ -54,8 +54,12 @@
     </div>
 
      <div class="form-group">
-	    <label for="city"> City</label>
+	    <label for="city"> City </label>
 	    <input type="text" class="form-control" id="city" name="city" placeholder="City">
+    </div>
+    <div class="form-group">
+	    <label for="revenue"> Expected Revenue(Rs/year)</label>
+	    <input type="text" class="form-control" id="revenue" name="revenue" placeholder="Revenue">
     </div>
 
      <div class="form-group col-10">
@@ -69,7 +73,7 @@
     </div>
     <p> </p>
     <div class="form-group col-10">
-    	<button type="button" class="btn btn-primary">Save</button>
+    	<button type="submit" class="btn btn-primary">Save</button>
     </div>
 
 </form>
