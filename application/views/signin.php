@@ -55,15 +55,15 @@
                                     <?php echo $success_msg; ?>
                                 </div>
                             <?php
-                        }
-                        if($error_msg){
-                        ?>
-                            <div class="alert alert-danger">
-                                <?php echo $error_msg; ?>
-                            </div>
-                        <?php
-                        }
-                        ?>
+                            }
+                            if($error_msg){
+                            ?>
+                                <div class="alert alert-danger">
+                                    <?php echo $error_msg; ?>
+                                </div>
+                            <?php
+                            }
+                            ?>
                             <form  method="post" action="<?php echo base_url();?>index.php/Users/loginUser" autocomplete="on"> 
                                 <h1>Log in</h1> 
                                 <p> 
