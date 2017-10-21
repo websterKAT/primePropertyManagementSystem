@@ -9,37 +9,25 @@ class Property extends CI_Controller {
 		$this->load->model('Property_model');
 		$this->load->helper('url');
 		$this->load->library('session');
-
-}
-
-	public function doUpload() {
+	}
+	
+	public function insertProperty() {
 		$config = array(
 			'upload_path' =>"./uploads/" ,
 			'allowed_types'=>"jpg|png|jpeg",
 			'overwrite'=> TRUE,
 			'max_size' => "4096000",
 			'max_height'=>"768",
-			'max_width'=>"1024"
+			'max_width'=>"2048"
 
 			 );
 		$this->load->library('upload',$config);
-		if($this->upload->do_upload('image')){
+		if($this->upload->do_upload('imageName'))
+		{
 			$data = array('upload_data' => $this->upload->data());
-			$this->load->view('headerAfterSignup',$data);
-			$this->load->view('home');
-			$this->load->view('footer');
-			
-			
-		}
-		else{
-			$error = array('error'=>$this->upload->display_errors());
-			print_r($error);
-			
-		}
-	}
-
-	public function insertProperty(){
-		$property = array(
+			$upload_data = $this->upload->data();
+			$file_name = $upload_data['file_name'];
+			$property = array(
 			'propertyType'=>$this->input->post('propertyType') ,
 			'district'=>$this->input->post('district') ,
 			'addressLine1'=>$this->input->post('addressL1') ,
@@ -48,18 +36,67 @@ class Property extends CI_Controller {
 			'revenue'=>$this->input->post('revenue') ,
 			'description'=>$this->input->post('description') ,
 			'propertyType'=>$this->input->post('propertyType') ,
-			'imgName'=>$this->input->post('image'),
-			//'Date'=>mdate('%Y-%m-%d %H:%i:%s', now()),
+			'imgName'=> $file_name ,
+			'Date'=> date("Y-m-d"),
 			'Users_username'=>$this->session->userdata('userName') ,
 
 			 );
-			$this->doUpload();
 			$this->Property_model->insertProperty($property);
-
+			$this->loadPropertyDetails();
+			
+			
+		}
+		
+		else {
+			$error = array('error'=>$this->upload->display_errors());
+			print_r($error);
+			
+		}
 		
 	}
 
-	
+	public function loadPendingPropertyDetails() {
+		$userId = $this->session->userdata('userName'); 
+		$query = $this->Property_model->getPendingProperty($userId);
+		
+	}
 
 
+	public function loadPropertyDetails() {
+		$userId = $this->session->userdata('userName'); 
+		$query = $this->Property_model->getPendingProperty($userId);
+		$data['PPROPERTIES'] = null;
+		if($query){
+			$data['PPROPERTIES'] = $query;
+		}
+		$query = $this->Property_model->getProperty($userId);
+		$data['PROPERTIES'] = null;
+		if($query){
+			$data['PROPERTIES']= $query;
+		}
+		
+		$this->load->view('headerAfterSignup');
+		$this->load->view('propertylist',$data);
+		$this->load->view('footer');
+
+	}
+
+	public function deleteProperty($propertyId){
+		
+		$this->Property_model->dodDeleteProperty($propertyId);
+		$this->session->set_flashdata('success_msg', 'Successfully Deleted');
+		$this->loadPropertyDetails();
+
+	}
+
+	public function loadAllPendingPosts(){
+		$query = $this->Property_model->getAllPendingProperty();
+		$data['PPROPERTIES'] = null;
+		if($query){
+			$data['PPROPERTIES'] = $query;
+		}
+		$this->load->view('basicAdmin');
+		$this->load->view('pendingPosts',$data);
+
+	}
 }

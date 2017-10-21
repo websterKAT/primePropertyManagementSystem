@@ -69,7 +69,7 @@
 
 	<div class="form-group col-10">
 	    <label for="exampleInputFile">Upload an Image</label>
-	    <input type="file" class="form-control-file" id="image" name="image" aria-describedby="fileHelp">
+	    <input type="file" class="form-control-file" id="imageName" name="imageName" aria-describedby="fileHelp">
     </div>
     <p> </p>
     <div class="form-group col-10">
