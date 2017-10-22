@@ -99,4 +99,26 @@ class Property extends CI_Controller {
 		$this->load->view('pendingPosts',$data);
 
 	}
+
+	public function loadPropertyForReview($propertyId){
+		$query = $this->Property_model->getOnePropertyForReview($propertyId);
+		$data['PROPERTY'] = null;
+		if($query){
+			$data['PROPERTY'] = $query;
+		}
+		$this->load->view('basicAdmin');
+		$this->load->view('propertyReview',$data);
+	}
+	public function approveProperty($propertyId){
+		$this->Property_model->doApproveProperty($propertyId);
+		$this->session->set_flashdata('success_msg', 'Successfully Approved');
+		$this->loadAllPendingPosts();
+	}
+
+	public function deleteSubmittedPosts($propertyId){
+		$this->Property_model->dodDeleteProperty($propertyId);
+		$this->session->set_flashdata('success_msg', 'Successfully Deleted');
+		$this->loadAllPendingPosts();
+
+	}
 }
