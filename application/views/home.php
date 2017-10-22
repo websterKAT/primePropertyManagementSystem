@@ -29,7 +29,7 @@
 					</div>
 				</div>
 			</div><!-- end slide -->
-			
+
 			<div class="row-fluid front-content">
 				<div class="span12">
 					<div class="row-fluid">
@@ -37,7 +37,7 @@
 							<h1>New Offer1</h1>
 							<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlax8WAcHwhesGkA_5w98Bi5AXGlvpZhIAkAwcT0fqJnQQcVMz">
 							<p>hello there.</p>
-							<a href="who-we-are.html" class="btn btn-small btn-inverse"><i class="icon-plus-sign icon-white"></i> read more</a>
+							<a href="<?php echo base_url() ?>/Detailview/viewmore/<?php echo $userid ?>" class="btn btn-small btn-inverse"><i class="icon-plus-sign icon-white"></i> read more</a>
 						</div>
 						<div class="span4">
 							<h1>New Offer2</h1>
@@ -54,7 +54,5 @@
 					</div><!-- end row-fluid -->
 				</div><!-- end span12 -->
 			</div><!-- end front-content -->
-	<!-- 	</div>	
+	<!-- 	</div>
 	</div>end wrapper -->
-	
-
