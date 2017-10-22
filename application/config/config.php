@@ -23,7 +23,7 @@ i| WARNING: You MUST set this value!
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost:8012/primePropertyManagementSystem-master/';
+$config['base_url'] = 'http://localhost:8012/primePropertyManagementSystem-lakshan/';
 
 /*
 |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ $config['index_page'] = 'index.php';
 |
 | WARNING: If you set this to 'PATH_INFO', URIs will always be URL-decoded!
 */
-$config['uri_protocol']	= 'AUTO';
+$config['uri_protocol']	= 'REQUEST_URI';
 
 /*
 |--------------------------------------------------------------------------

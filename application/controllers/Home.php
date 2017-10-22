@@ -22,8 +22,8 @@ class Home extends CI_Controller {
 
 
 	public function showAddProperty(){
-		if($this->session->userdata('username')){
-			$this->load->view('header');
+		if($this->session->userdata('userName')){
+			$this->load->view('headerAfterSignup');
 			$this->load->view('addProperty');
 			$this->load->view('footer');
 		}
