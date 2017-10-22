@@ -23,7 +23,7 @@ i| WARNING: You MUST set this value!
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/CodeIgniter/';
+$config['base_url'] = 'http://localhost/primePropertyManagementSystem/';
 
 /*
 |--------------------------------------------------------------------------

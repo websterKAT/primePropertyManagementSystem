@@ -169,6 +169,9 @@ body{
     display: block;
 }
 
+#add-property {
+    color: green;
+}
 
 @media (max-width: 767px) {
     .dropdown-menu.multi-column {

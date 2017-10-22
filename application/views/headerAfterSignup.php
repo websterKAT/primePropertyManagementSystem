@@ -22,12 +22,18 @@
 						<div class="nav-collapse collapse navigation-top pull-right">
 							<ul class="nav">
 								<li><a href="">Home</a></li>
-								<li><a href="">Lands</a></li>
+								<li><a href="<?php echo base_url(); ?>index.php/Property/loadPropertyDetails">My Account</a></li>
 								<li><a href="">Buildings</a></li>
 								<li><a href="">Houses</a></li>
 								<li><a href="">About Us</a></li>
+								<li><a href="<?php echo base_url(); ?>index.php/Users/userLogout">logout</a></li>
 								<li><a href="<?php echo base_url(); ?>index.php/Home/showAddProperty">AddProperty</a></li>
-								<li><a href="<?php echo base_url(); ?>index.php/Users/index">Sign in</a></li>
+								<li>You are Logged In as: <?php 
+								$uname = $this->session->userdata('userName'); 
+								echo $uname
+								?>
+									
+								</li>
 								
 							</ul>
 						</div>				

@@ -54,7 +54,7 @@
 					</div><!-- end row-fluid -->
 				</div><!-- end span12 -->
 			</div><!-- end front-content -->
-		</div><!-- end container -->	
-	</div><!-- end wrapper -->
+	<!-- 	</div>	
+	</div>end wrapper -->
 	
 

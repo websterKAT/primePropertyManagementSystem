@@ -1,8 +1,10 @@
+	</div><!-- end container -->	
+	</div><!-- end wrapper -->	
 	<div class="row-fluid footer">
 		<div class="footer-wrap">			
 			<div class="span6">
 				<h2>Property Management Service Providers</h2>	
-				<p>heeloo.</p>
+				<p><a href="<?php echo site_url("Users/loadAdminLogin") ?>">Login as Admin </a></p>
 				<div class="controls">
 					<p class="footer-subscribe">Subscribe to our Newsletter</p>
 					<div class="input-append">
