@@ -37,20 +37,6 @@ class User_model extends CI_model{
 	}
 
 
-	public function loginAdminUser($email,$password){
-		$this->db->select('*');
-		$this->db->from('AdminUsers');
-		$this->db->where('email',$email);
-		$this->db->where('password',$password);
-		if($query=$this->db->get()){
-			return $query->row_array();
-		}
-		else{
-			return false;
-		}
-	}
-
-
 
 
 

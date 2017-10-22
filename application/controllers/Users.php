@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access is allowed');
 
 class Users extends CI_Controller {
 
-public function __construct() {
+public function __construct(){
 	parent::__construct();
 	$this->load->model('User_model');
 	$this->load->helper('url');
@@ -11,12 +11,12 @@ public function __construct() {
 
 }
 
-public function index() {
+public function index(){
 	$this->load->view('signin');
 }
 
 
-public function registerUser() {
+public function registerUser(){
 	$user = array(
 		'firstName'=>$this->input->post('firstname'), 
 		'lastName'=>$this->input->post('lastname'),
@@ -64,30 +64,6 @@ public function userLogout(){
 	$this->session->sess_destroy();
 	redirect('Home/index','refresh');
 }
-public function loadAdminLogin(){
-	$this->load->view('adminLogin');
-}
-
-public function loginAdminUser(){
-	$userLogin = array(
-		'userEmail' => $this->input->post('username'),
-		'userpassword'=>$this->input->post('password') );
-	$data=$this->User_model->loginAdminUser($userLogin['userEmail'],$userLogin['userpassword']);
-	if($data){
-		$this->session->set_userdata('userName',$data['userName']);
-		$this->load->view('basicAdmin');
-		
-		
-		
-		
-
-	}
-	else {
-		 $this->session->set_flashdata('error_msg', 'Error occured,Try again');
-		 $this->load->view("adminLogin");
-	}
-}
-
 
 }
 
