@@ -1,6 +1,16 @@
 <div id="main">
 <div class="col-md-12">
 <?php
+        $success_msg= $this->session->flashdata('success_msg');
+      if($success_msg){
+      ?>
+        <div class="alert alert-success">
+        <strong>Command Successfully Done!</strong> 
+        </div>
+       <?php
+          }
+        ?>
+<?php
       if($PPROPERTIES == null){ ?>
         <h3>No any Pending posts </h3>
      <?php } ?>
@@ -17,11 +27,10 @@
         <th>City</th>
         <th>Revenue Expecting</th>
        	<th>Description </th>
-       	<th>User Name </th>
-       	<th> Date </th>
-       	<th>Image</th>
-       	<th>Approve </th>
-       	<th>Delete </th>
+       	<th>Date </th>
+        <th>User Name </th>
+       	<th>View </th>
+       	
       </tr>
     </thead>
     <tbody>
@@ -33,18 +42,16 @@
         <td><?=$value1->city;?></td>
         <td><?=$value1->revenue;?></td>
         <td><?=$value1->description;?></td>
-        <td><?=$value1->Users_username;?></td>
         <td><?=$value1->Date;?></td>
-        <td><img src="./uploads/<?php echo $value1->imgName ?>"></td>
-        <td><a href="" type="button" class="btn btn-success btn-xs">Approve</button></td>
-        <td><a href="" type="button" class="btn btn-danger btn-xs">Delete</button></td>
-        
+        <td><?=$value1->Users_username;?> </td>
+        <td><a href="<?php echo site_url('Property/loadPropertyForReview/'.$value1->idproperty);?>" type="button" class="btn btn-success btn-xs">View</button></td>
         </tr>
         <?php }?> 
       </tbody>
       </table>
      <?php } ?>
-</div>
+    
+< /div>
 </div>
 </div>
 </body>

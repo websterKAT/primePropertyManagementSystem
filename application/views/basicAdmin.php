@@ -25,7 +25,7 @@
         <li><a href="#">Home </a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
-         <li><a href="" > Logout </a></li>
+         <li><a href="<?php echo site_url('Users/userLogout')?>" > Logout </a></li>
         <li><a href=""> You are logged in as:</a></li>
         <li><a href=""> <?php 
                 $uname = $this->session->userdata('userName'); 

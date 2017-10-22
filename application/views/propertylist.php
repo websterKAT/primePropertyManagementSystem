@@ -76,6 +76,7 @@
       	<?php }?>	
       </tbody>
   </table>
+    
     <?php 
     } ?>    
 

@@ -37,6 +37,20 @@
 			return $query->result();	
 		}
 
+		public function getOnePropertyForReview($propertyId){
+			$this->db->select('*');
+			$this->db->from('property');
+			$this->db->where('idproperty',$propertyId);
+			$query = $this->db->get();
+			return $query->result();
+		}
+
+		public function doApproveProperty($propertyId){
+			$this->db->set('postState', "APPROVED"); 
+			$this->db->where('idproperty', $propertyId);   
+			$this->db->update('property'); 
+		}
+
 	}
 
 ?>
