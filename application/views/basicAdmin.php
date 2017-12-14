@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en-us">
+<html lang="en-us" xmlns="http://www.w3.org/1999/html">
 <head>
   <title>Preperty Management pvt ltd</title>
   <meta charset="utf-8">
@@ -40,16 +40,9 @@
   <div id="sidebar" class="sidebar-offcanvas">
       <div class="col-md-12">
        <ul class="nav nav-pills nav-stacked">
+           <li><a href="<?php echo site_url('Property/loadAllSubmittedPosts')?>"> All Posts</a> </li>
           <li><a href="<?php echo site_url('Property/loadAllPendingPosts')?>">Pending Posts</a></li>
-          <li><a href="#">Section</a></li>
-          <li><a href="#">Section</a></li>
-          <li><a href="#">Section</a></li>
-          <li><a href="#">Section</a></li>
-          <li><a href="#">Section</a></li>
-          <li><a href="#">Section</a></li>
-          <li><a href="#">Section</a></li>
-          <li><a href="#">Section</a></li>
-          <li><a href="#">Section</a></li>
+
         </ul>
       </div>
   </div>

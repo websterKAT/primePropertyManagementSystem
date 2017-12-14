@@ -44,7 +44,7 @@
         <td><?=$value1->description;?></td>
         <td><?=$value1->Date;?></td>
         <td><?=$value1->Users_username;?> </td>
-        <td><a href="<?php echo site_url('Property/loadPropertyForReview/'.$value1->idproperty);?>" type="button" class="btn btn-success btn-xs">View</button></td>
+        <td><a href="<?php echo site_url('Property/loadPropertyForReview/'.$value1->idproperty);?>" type="button" class="btn btn-success btn-xs">View</a></td>
         </tr>
         <?php }?> 
       </tbody>
