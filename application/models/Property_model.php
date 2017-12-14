@@ -46,9 +46,16 @@
 		}
 
 		public function doApproveProperty($propertyId){
-			$this->db->set('postState', "APPROVED"); 
-			$this->db->where('idproperty', $propertyId);   
-			$this->db->update('property'); 
+			$this->db->set('postState', "APPROVED");
+			$this->db->where('idproperty', $propertyId);
+			$this->db->update('property');
+		}
+		public function getAllApprovedProperty(){
+			$this->db->select('*');
+			$this->db->from('property');
+			$this->db->where('postState',"APPROVED");
+			$query = $this->db->get();
+			return $query->result();
 		}
 
 	}
