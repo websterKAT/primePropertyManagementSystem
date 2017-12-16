@@ -136,5 +136,18 @@
                 </div>  
             </section>
         </div>
+        <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyAzkXn6sjAf3NmRtRdXRJPydr-yXDyXluQ",
+                authDomain: "prime-bc8d1.firebaseapp.com",
+                databaseURL: "https://prime-bc8d1.firebaseio.com",
+                projectId: "prime-bc8d1",
+                storageBucket: "prime-bc8d1.appspot.com",
+                messagingSenderId: "206138314043"
+            };
+            firebase.initializeApp(config);
+        </script>
     </body>
 </html>

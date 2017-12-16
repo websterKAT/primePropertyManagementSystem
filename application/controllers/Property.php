@@ -38,6 +38,7 @@ class Property extends CI_Controller {
 			'propertyType'=>$this->input->post('propertyType') ,
 			'imgName'=> $file_name ,
 			'Date'=> date("Y-m-d"),
+				'curTime' =>date("Y-m-d H:i:s"),
 			'Users_username'=>$this->session->userdata('userName') ,
 
 			 );
@@ -89,7 +90,7 @@ class Property extends CI_Controller {
 
 	}
 
-	public function loadAllPendingPosts(){
+	public function loadAllPendingPosts() {
 		$query = $this->Property_model->getAllPendingProperty();
 		$data['PPROPERTIES'] = null;
 		if($query){
@@ -100,7 +101,7 @@ class Property extends CI_Controller {
 
 	}
 
-	public function loadPropertyForReview($propertyId){
+	public function loadPropertyForReview($propertyId) {
 		$query = $this->Property_model->getOnePropertyForReview($propertyId);
 		$data['PROPERTY'] = null;
 		if($query){
@@ -109,16 +110,27 @@ class Property extends CI_Controller {
 		$this->load->view('basicAdmin');
 		$this->load->view('propertyReview',$data);
 	}
+
 	public function approveProperty($propertyId){
 		$this->Property_model->doApproveProperty($propertyId);
 		$this->session->set_flashdata('success_msg', 'Successfully Approved');
 		$this->loadAllPendingPosts();
 	}
 
+
 	public function deleteSubmittedPosts($propertyId){
 		$this->Property_model->dodDeleteProperty($propertyId);
 		$this->session->set_flashdata('success_msg', 'Successfully Deleted');
 		$this->loadAllPendingPosts();
 
+	}
+	public function loadAllApprovedPosts(){
+		$query = $this->Property_model->getAllApprovedProperty();
+		$data['APROPERTIES'] = null;
+		if($query){	
+			$data['APROPERTIES'] = $query;
+		}
+		$this->load->view('basicAdmin');
+		$this->load->view('allApprovedProperties',$data);
 	}
 }

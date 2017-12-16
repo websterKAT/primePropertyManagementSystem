@@ -54,9 +54,15 @@
 			$this->db->select('*');
 			$this->db->from('property');
 			$this->db->where('postState',"APPROVED");
+			$this->db->order_by('Date',"DESC");
+			$this->db->order_by('curTime',"DESC");
 			$query = $this->db->get();
 			return $query->result();
 		}
+
+
+		
+		
 
 	}
 

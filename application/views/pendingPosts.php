@@ -1,6 +1,8 @@
-<div id="main">
-<div class="col-md-12">
-<?php
+<div class="col-md-1">
+
+</div>
+<div class="col-md-8">
+    <?php
         $success_msg= $this->session->flashdata('success_msg');
       if($success_msg){
       ?>
@@ -10,13 +12,13 @@
        <?php
           }
         ?>
-<?php
+    <?php
       if($PPROPERTIES == null){ ?>
         <h3>No any Pending posts </h3>
      <?php } ?>
      <?php 
      if($PPROPERTIES != null) { ?>
-      <h2 style="margin-top:50px;">PENDING POST </h2>
+      <h2 style="margin-top:50px;">PENDING POSTS </h2>
     <table class="table table-striped" style="margin-top:10px;">
     <thead>
       <tr>
@@ -51,8 +53,11 @@
       </table>
      <?php } ?>
     
-< /div>
+</div>
+<div class="col-md-1">
 </div>
 </div>
+</div>
+
 </body>
 </html>
