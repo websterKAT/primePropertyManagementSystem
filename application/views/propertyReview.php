@@ -1,5 +1,7 @@
-<div id="main">
-<div class="col-md-12">
+<div class="col-md-1">
+
+</div>
+<div class="col-md-8">
 <h2> REVIEW</h2>
 
 <table class="table table-bordered" style="margin-top:50px;">
@@ -53,6 +55,9 @@
 <p> </p>
 <p> </p>
 <p> </p>
+</div>
+<div class="col-md-1">
+
 </div>
 </div>
 </body>
