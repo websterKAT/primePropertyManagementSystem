@@ -15,11 +15,15 @@
             <div class="description"><?=$value->description;?>  </div>
             <div class="date"> <?=$value->Date;?> <br/> </div>
             <div class="time"><?=$value->curTime;?> <br/></div>
+            <div> <a href="<?php echo site_url('Property/loadPropertyForMoreInfo/'.$value->idproperty);?>"> View More </a> </div>
 
         </div>
     </div>
         </div>
     <?php } ?>
+    <?php
+        echo $this->pagination->create_links();
+    ?>
 
 </div>
 <div class="col-md-1">

@@ -71,7 +71,7 @@
       	<td><?=$value->city;?></td>
       	<td><?=$value->revenue;?></td>
       	<td><?=$value->Date;?></td> 
-      	<td><a href="<?php echo site_url('Property/deleteProperty/'.$value->idproperty);?>" type="button" class="btn btn-danger btn-xs">Delete</button></td>
+      	<td><a href="<?php echo site_url('Property/deleteProperty/'.$value->idproperty);?>" type="button" class="btn btn-danger btn-xs">Delete</a></td>
         </tr>
       	<?php }?>	
       </tbody>

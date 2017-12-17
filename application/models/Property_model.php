@@ -50,6 +50,16 @@
 			$this->db->where('idproperty', $propertyId);
 			$this->db->update('property');
 		}
+		public function getAllApprovedPropertyForPagination(){
+			$this->db->select('*');
+			/*$this->db->from('property');*/
+			$this->db->where('postState',"APPROVED");
+			$this->db->order_by('Date',"DESC");
+			$this->db->order_by('curTime',"DESC");
+			$query = $this->db->get('property','4',$this->uri->segment(3));
+			return $query->result();
+		}
+
 		public function getAllApprovedProperty(){
 			$this->db->select('*');
 			$this->db->from('property');
@@ -57,8 +67,25 @@
 			$this->db->order_by('Date',"DESC");
 			$this->db->order_by('curTime',"DESC");
 			$query = $this->db->get();
+			return $query->num_rows();
+		}
+
+		public function getApprovedSelections($propertyType){
+			$this->db->select('*');
+			$this->db->from('property');
+			$this->db->where('postState',"APPROVED");
+			$this->db->where('propertyType',$propertyType);
+			$this->db->order_by('Date',"DESC");
+			$this->db->order_by('curTime',"DESC");
+			$query = $this->db->get();
 			return $query->result();
 		}
+
+		
+
+
+
+
 
 
 		
