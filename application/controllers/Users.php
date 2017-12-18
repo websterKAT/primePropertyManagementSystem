@@ -9,6 +9,7 @@ public function __construct() {
 	$this->load->helper('url');
 	$this->load->library('session');
 	$this->load->model('Property_model');
+	$this->load->library('form_validation');
 
 }
 
@@ -29,13 +30,15 @@ public function registerUser() {
 	print_r($user);
 	
 	$email_check = $this->User_model->email_check($user['email']);
-	if(email_check){
+	$password_check = $this->User_model->passwordCheck($user['password']);
+	$username_check = $this->User_model->userNameCheck($user['username']);
+	if($email_check && $password_check && $username_check){
 		$this->User_model->registerUser($user);
 		$this->session->set_flashdata('success_msg','Registration Sucessfully.Now Login to Your Account');
 		redirect('Users/index');
 	}
 	else{
-		$this->session->set_flashdata('error_msg','Error occured,Please try again');
+		$this->session->set_flashdata('error_msg','Your E-mail or Password Already registered');
 		redirect('Users/index');
 	}	
 }
@@ -51,13 +54,17 @@ public function loginUser(){
 		$this->session->set_userdata('email',$data['email']);
 		$this->session->set_userdata('telephoneNo',$data['telephone']);
 		$this->session->set_userdata('userName',$data['username']);
+		$this->load->model('Homeview_model');
+		$data['land']=$this->Homeview_model->getland();
+		$data['house']=$this->Homeview_model->gethouse();
+		$data['com']=$this->Homeview_model->getcom();
 		$this->load->view('headerAfterSignup');
-		$this->load->view('home');
+		$this->load->view('home',$data);
 		$this->load->view('footer');
 
 	}
 	else{
-		 $this->session->set_flashdata('error_msg', 'Error occured,Try again');
+		 $this->session->set_flashdata('error_msg', 'Wrong UserName or Password');
 		 $this->load->view("signin");
 	}
 }

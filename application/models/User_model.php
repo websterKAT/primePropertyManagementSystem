@@ -35,6 +35,30 @@ class User_model extends CI_model{
 			return true;
 		}
 	}
+	public function passwordCheck($password) {
+		$this->db->select('*');
+		$this->db->from('Users');
+		$this->db->where('password', $password);
+		$query = $this->db->get();
+
+		if ($query->num_rows() > 0) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	public function userNameCheck($userName) {
+		$this->db->select('*');
+		$this->db->from('Users');
+		$this->db->where('username', $userName);
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 
 
 	public function loginAdminUser($email,$password){

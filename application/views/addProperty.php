@@ -2,7 +2,7 @@
 	<div class="col-md-12">
 	<div class="form-group" style="margin-top: 100px;">
 	    <label for="propertyType"><b>Property Type </b></label>
-	    <select class="form-control" id="propertyType" name="propertyType" style="width:710px;" required>
+	    <select class="form-control" id="propertyType" name="propertyType" style="width: 710px;	" required>
 	      <option>Land</option>
 	      <option>Houses</option>
 	      <option>Apartments</option>
@@ -60,7 +60,7 @@
     </div>
     <div class="form-group">
 	    <label for="revenue"><b>Expected Revenue(Rs/year)</b></label>
-	    <input type="number" class="form-control" id="revenue" name="revenue" placeholder="Revenue" style="width: 700px;" required>
+	    <input type="number	" class="form-control" id="revenue" name="revenue" placeholder="Revenue" style="width: 700px;" required>
     </div>
 
      <div class="form-group col-10">

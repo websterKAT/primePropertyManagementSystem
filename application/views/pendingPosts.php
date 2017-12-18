@@ -7,7 +7,7 @@
       if($success_msg){
       ?>
         <div class="alert alert-success">
-        <strong>Command Successfully Done!</strong> 
+        <strong> Successfully Done!</strong>
         </div>
        <?php
           }
@@ -18,7 +18,8 @@
      <?php } ?>
      <?php 
      if($PPROPERTIES != null) { ?>
-      <h2 style="margin-top:50px;">PENDING POSTS </h2>
+         <button type="button" class="btn btn-primary col-sm-12"
+                 data-toggle="collapse" data-target="#proposal" style="margin-top:25px;"> PENDING POSTS </button>
     <table class="table table-striped" style="margin-top:10px;">
     <thead>
       <tr>

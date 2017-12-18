@@ -34,11 +34,21 @@
       if($success_msg){
       ?>
         <div class="alert alert-success">
-        <strong>Success!</strong> Succefully Deleted the Post
+        <strong>Success!</strong> Successfully Deleted the Post
         </div>
        <?php
           }
         ?>
+      <?php
+      $success_msg2= $this->session->flashdata('success_msg2');
+      if($success_msg2){
+        ?>
+        <div class="alert alert-success">
+          <strong>Success!</strong> Your post has been added to the pending list
+        </div>
+        <?php
+      }
+      ?>
     </table>
     <?php } ?>
     <?php 

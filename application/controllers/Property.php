@@ -14,12 +14,8 @@ class Property extends CI_Controller {
 	}
 	
 	public function insertProperty() {
-		/*$this->load->library('form_validation');
-		$this->form_validation->set_rules("propertyType","Property Type",'required');
-		$this->form_validation->set_rules("district","First Name",'required|alpha');
-		$this->form_validation->set_rules("","Last Name",'required|alpha');
-		$this->form_validation->set_rules("pwd","Password",'required');
-		$this->form_validation->set_rules("confirmPwd","confirm password",'required');*/
+		$this->load->library('form_validation');
+
 		$config = array(
 			'upload_path' =>"./uploads/" ,
 			'allowed_types'=>"jpg|png|jpeg",
@@ -30,7 +26,8 @@ class Property extends CI_Controller {
 
 			 );
 		$this->load->library('upload',$config);
-		if($this->upload->do_upload('imageName')) {
+		if($this->upload->do_upload('imageName'))
+		{
 			$data = array('upload_data' => $this->upload->data());
 			$upload_data = $this->upload->data();
 			$file_name = $upload_data['file_name'];
@@ -50,6 +47,7 @@ class Property extends CI_Controller {
 
 			 );
 			$this->Property_model->insertProperty($property);
+			$this->session->set_flashdata('success_msg2', 'Your post has been added to the pending list');
 			$this->loadPropertyDetails();
 			
 			
@@ -58,6 +56,7 @@ class Property extends CI_Controller {
 		else {
 			$error = array('error'=>$this->upload->display_errors());
 			print_r($error);
+			
 		}
 		
 	}
@@ -127,7 +126,7 @@ class Property extends CI_Controller {
 		$this->load->view('viewMoreProperty',$data);
 	}
 
-	public function approveProperty($propertyId){
+	public function approveProperty($propertyId) {
 		$this->Property_model->doApproveProperty($propertyId);
 		$this->session->set_flashdata('success_msg', 'Successfully Approved');
 		// load library
@@ -148,7 +147,7 @@ class Property extends CI_Controller {
 		$this->loadAllPendingPosts();
 
 	}
-	public function loadAllApprovedPosts(){
+	public function loadAllApprovedPosts() {
 		$query1 = $this->Property_model->getAllApprovedProperty();
 		$query2 = $this->Property_model->getAllApprovedPropertyForPagination();
 		$data['APROPERTIES'] = null;
@@ -190,16 +189,15 @@ class Property extends CI_Controller {
 		$propertyType = $this->input->post('advance-search');
 		$query = $this->Property_model->getApprovedSelections($propertyType);
 		$data['SPROPERTIES'] =null;
-		if($query){
+		if($query) {
 			$data['SPROPERTIES'] = $query;
 			$this->load->view('basicAdmin');
 			$this->load->view('loadSearchedProperties',$data);
 		}
-		else{
+		else {
 			$this->session->set_flashdata('no_result', 'no_result');
 			$this->load->view('basicAdmin');
 			$this->load->view('showingEmptyResult');
-
 		}
 
 
