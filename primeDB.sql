@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 18, 2017 at 09:49 AM
+-- Generation Time: Dec 18, 2017 at 09:40 PM
 -- Server version: 5.7.20-0ubuntu0.16.04.1
 -- PHP Version: 7.0.22-0ubuntu0.16.04.1
 
@@ -67,14 +67,12 @@ CREATE TABLE `property` (
 --
 
 INSERT INTO `property` (`idproperty`, `propertyType`, `district`, `addressLine1`, `addressLine2`, `city`, `revenue`, `description`, `imgName`, `Date`, `postState`, `Users_username`, `curTime`) VALUES
-(22, 'Apartments', 'Jaffna', 'no 900', 'Kilinichchi road', 'Jaffna', '8999999999', 'this is just an Apartment', 'apart1.jpg', '2017-10-22', 'APPROVED', 'abc', '03:15:37'),
-(23, 'Commercial Property', 'Nuwara Eliya', 'No 924', 'Pattipola road', 'Nuwara Eliya', '500000', 'this is just a commercial property\r\nvery Attractive', 'green.jpg', '2017-10-22', 'APPROVED', 'abc', '13:13:33'),
-(24, 'Holiday and Short-Term Rental', 'Kandy', 'No 5/678', 'Peradeniaya road', 'Hanthana', '800000000', 'this is insane', 'ddd.jpg', '2017-10-22', 'APPROVED', 'abc', '16:12:06'),
-(25, 'Houses', 'Colombo', 'no 9876', 'Nugegoda road', 'Colombo 7', '95014112', 'this is indian Ocean', 'sea.jpg', '2017-10-22', 'APPROVED', 'abc', NULL),
-(26, 'Other', 'Mannar', 'dddd', 'ddddd', 'Nugegoda', '78550000', 'this is test', 'land1.png', '2017-10-22', 'PENDING', 'costa', NULL),
-(27, 'Houses', 'Ampara', 'efeaf', 'vasvasv', 'savasvasv', '80000', 'aafafasasfasfasfasf', 'apart1.jpg', '2017-10-23', 'PENDING', 'abc', NULL),
-(28, 'Houses', 'Anuradhapura', 'hdhgs', 'ssss', 'gshg', 'ahag', 'dhhhh', 'green.jpg', '2017-10-23', 'APPROVED', 'abc', '00:00:00'),
-(29, 'Land', 'Ampara', 'No 123', 'Gampaha', 'COlombo ', '133000 ', 'gampaha wewvwev wvwvwqv\r\nqwvwqvwqv\r\nqwvqwv\r\n', 'abcdefg.jpg', '2017-12-18', 'PENDING', 'abc', '09:48:11');
+(23, 'Commercial Property', 'Nuwara Eliya', 'No 924', 'Pattipola road', 'Nuwara Eliya', '500000', '1500 square feet sized two storied bulding.', 'com.jpg', '2017-10-22', 'APPROVED', 'abc', '13:13:33'),
+(25, 'Houses', 'Colombo', 'no 9876', 'Nugegoda road', 'Colombo 7', '95014112', 'Two bed rooms with attached bathrooms. Located at a very calm place.', 'sea.jpg', '2017-10-22', 'APPROVED', 'abc', '02:25:22'),
+(27, 'Houses', 'Ampara', 'No 195', 'Thumpane road', 'Ampara', '80000', 'Two storied house with a beautifully maintained garden.', 'apart1.jpg', '2017-10-23', 'PENDING', 'abc', '10:00:00'),
+(28, 'Houses', 'Anuradhapura', 'No 456', 'Kandy Road', 'Anuradhapura', 'ahag', 'Four bathrooms and one bed room. Good condition.', 'green.jpg', '2017-10-23', 'APPROVED', 'abc', '00:00:00'),
+(29, 'Land', 'Ampara', 'No 123', 'Gampaha', 'Colombo ', '133000 ', '1.5 acres and firtiled flat land.', 'abcdefg.jpg', '2017-12-18', 'APPROVED', 'abc', '09:48:11'),
+(32, 'Commercial Property', 'Kurunegala', 'no 098', 'Asgiriya', 'Gampaha', '78511', '4 rooms with living rooms', 'build.jpg', '2017-12-18', 'PENDING', 'abc', '17:33:18');
 
 -- --------------------------------------------------------
 
@@ -97,7 +95,9 @@ CREATE TABLE `Users` (
 
 INSERT INTO `Users` (`username`, `firstName`, `lastName`, `email`, `telephone`, `password`) VALUES
 ('abc', 'Tha', 'la', 'lakshankat@gmail.com', '0313313261', '900150983cd24fb0d6963f7d28e17f72'),
-('costa', 'Thilan', 'Costa', 'costa@gmail.com', '0312247188', '202cb962ac59075b964b07152d234b70');
+('costa', 'Thilan', 'Costa', 'costa@gmail.com', '0312247188', '202cb962ac59075b964b07152d234b70'),
+('lucky', 'Lucky', 'Seww', 'lcuk@gmail.com', '0313313261', '867c4235c7d5abbefd2b8abd92b57f8a'),
+('websterKAT', 'Tharindu', 'Lakshan', 'webster@gmail.com', '0777894561', '4eae35f1b35977a00ebd8086c259d4c9');
 
 --
 -- Indexes for dumped tables
@@ -123,7 +123,8 @@ ALTER TABLE `property`
 --
 ALTER TABLE `Users`
   ADD PRIMARY KEY (`username`),
-  ADD UNIQUE KEY `password_UNIQUE` (`password`);
+  ADD UNIQUE KEY `password_UNIQUE` (`password`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -138,7 +139,7 @@ ALTER TABLE `AdminUsers`
 -- AUTO_INCREMENT for table `property`
 --
 ALTER TABLE `property`
-  MODIFY `idproperty` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `idproperty` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- Constraints for dumped tables
 --
