@@ -44,11 +44,11 @@
             <td> <?=$value->Users_username;?> </td>
         </tr>
         <p>
-            <img alt="" height="500px;" width="500px;" src="<?php echo base_url(); ?>uploads/<?=$value->imgName;?>"> </p>
+            <img alt="" height="400px;" width="500px;" src="<?php echo base_url(); ?>uploads/<?=$value->imgName;?>"> </p>
 
         </tbody>
     </table>
-
+    <a href="<?php echo site_url('Property/deleteSubmittedPosts/'.$value->idproperty);?>" type="button" class="btn btn-danger">Delete</a>
     <?php } ?>
     <p> </p>
     <p> </p>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 14, 2017 at 11:34 PM
+-- Generation Time: Dec 18, 2017 at 09:49 AM
 -- Server version: 5.7.20-0ubuntu0.16.04.1
 -- PHP Version: 7.0.22-0ubuntu0.16.04.1
 
@@ -58,22 +58,23 @@ CREATE TABLE `property` (
   `imgName` varchar(45) DEFAULT NULL,
   `Date` date DEFAULT NULL,
   `postState` varchar(25) NOT NULL DEFAULT 'PENDING',
-  `Users_username` varchar(25) NOT NULL
+  `Users_username` varchar(25) NOT NULL,
+  `curTime` time DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `property`
 --
 
-INSERT INTO `property` (`idproperty`, `propertyType`, `district`, `addressLine1`, `addressLine2`, `city`, `revenue`, `description`, `imgName`, `Date`, `postState`, `Users_username`) VALUES
-(22, 'Apartments', 'Jaffna', 'no 900', 'Kilinichchi road', 'Jaffna', '8999999999', 'this is just an Apartment', 'apart1.jpg', '2017-10-22', 'APPROVED', 'abc'),
-(23, 'Commercial Property', 'Nuwara Eliya', 'No 924', 'Pattipola road', 'Nuwara Eliya', '500000', 'this is just a commercial property\r\nvery Attractive', 'green.jpg', '2017-10-22', 'APPROVED', 'abc'),
-(24, 'Holiday and Short-Term Rental', 'Kandy', 'No 5/678', 'Peradeniaya road', 'Hanthana', '800000000', 'this is insane', 'ddd.jpg', '2017-10-22', 'APPROVED', 'abc'),
-(25, 'Houses', 'Colombo', 'no 9876', 'Nugegoda road', 'Colombo 7', '95014112', 'this is indian Ocean', 'sea.jpg', '2017-10-22', 'APPROVED', 'abc'),
-(26, 'Other', 'Mannar', 'dddd', 'ddddd', 'Nugegoda', '78550000', 'this is test', 'land1.png', '2017-10-22', 'APPROVED', 'costa'),
-(27, 'Houses', 'Ampara', 'efeaf', 'vasvasv', 'savasvasv', '80000', 'aafafasasfasfasfasf', 'apart1.jpg', '2017-10-23', 'APPROVED', 'abc'),
-(28, 'Houses', 'Anuradhapura', 'hdhgs', 'ssss', 'gshg', 'ahag', 'dhhhh', 'green.jpg', '2017-10-23', 'PENDING', 'abc'),
-(29, 'Houses', 'Anuradhapura', 'hghg', 'hgh', 'gshw', '1466', 'hfvdurn', 'green.jpg', '2017-10-23', 'PENDING', 'abc');
+INSERT INTO `property` (`idproperty`, `propertyType`, `district`, `addressLine1`, `addressLine2`, `city`, `revenue`, `description`, `imgName`, `Date`, `postState`, `Users_username`, `curTime`) VALUES
+(22, 'Apartments', 'Jaffna', 'no 900', 'Kilinichchi road', 'Jaffna', '8999999999', 'this is just an Apartment', 'apart1.jpg', '2017-10-22', 'APPROVED', 'abc', '03:15:37'),
+(23, 'Commercial Property', 'Nuwara Eliya', 'No 924', 'Pattipola road', 'Nuwara Eliya', '500000', 'this is just a commercial property\r\nvery Attractive', 'green.jpg', '2017-10-22', 'APPROVED', 'abc', '13:13:33'),
+(24, 'Holiday and Short-Term Rental', 'Kandy', 'No 5/678', 'Peradeniaya road', 'Hanthana', '800000000', 'this is insane', 'ddd.jpg', '2017-10-22', 'APPROVED', 'abc', '16:12:06'),
+(25, 'Houses', 'Colombo', 'no 9876', 'Nugegoda road', 'Colombo 7', '95014112', 'this is indian Ocean', 'sea.jpg', '2017-10-22', 'APPROVED', 'abc', NULL),
+(26, 'Other', 'Mannar', 'dddd', 'ddddd', 'Nugegoda', '78550000', 'this is test', 'land1.png', '2017-10-22', 'PENDING', 'costa', NULL),
+(27, 'Houses', 'Ampara', 'efeaf', 'vasvasv', 'savasvasv', '80000', 'aafafasasfasfasfasf', 'apart1.jpg', '2017-10-23', 'PENDING', 'abc', NULL),
+(28, 'Houses', 'Anuradhapura', 'hdhgs', 'ssss', 'gshg', 'ahag', 'dhhhh', 'green.jpg', '2017-10-23', 'APPROVED', 'abc', '00:00:00'),
+(29, 'Land', 'Ampara', 'No 123', 'Gampaha', 'COlombo ', '133000 ', 'gampaha wewvwev wvwvwqv\r\nqwvwqvwqv\r\nqwvqwv\r\n', 'abcdefg.jpg', '2017-12-18', 'PENDING', 'abc', '09:48:11');
 
 -- --------------------------------------------------------
 

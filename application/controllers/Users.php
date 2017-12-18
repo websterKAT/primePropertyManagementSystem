@@ -8,6 +8,7 @@ public function __construct() {
 	$this->load->model('User_model');
 	$this->load->helper('url');
 	$this->load->library('session');
+	$this->load->model('Property_model');
 
 }
 
@@ -75,10 +76,16 @@ public function loginAdminUser(){
 	$data=$this->User_model->loginAdminUser($userLogin['userEmail'],$userLogin['userpassword']);
 	if($data){
 		$this->session->set_userdata('userName',$data['userName']);
+		$query = $this->Property_model->getAllPendingProperty();
+		$data['PPROPERTIES'] = null;
+		if($query){
+			$data['PPROPERTIES'] = $query;
+		}
 		$this->load->view('basicAdmin');
-		
-		
-		
+		$this->load->view('pendingPosts',$data);
+
+
+
 		
 
 	}

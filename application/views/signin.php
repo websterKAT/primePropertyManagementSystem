@@ -16,23 +16,25 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>resources/css/demo.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>resources/css/style.css" />
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>resources/css/animate-custom.css" />
+
+
     </head>
     <body>
         <div class="container">
-            <!-- Codrops top bar -->
+
             <div class="codrops-top">
                 <a href="">
                     <strong>&laquo; Prime Property Management Service Providers: </strong>
                 </a>
                 <span class="right">
                     <a href=" http://tympanus.net/codrops/2012/03/27/login-and-registration-form-with-html5-and-css3/">
-                       
+
                     </a>
                 </span>
                 <div class="clr"></div>
-            </div><!--/ Codrops top bar -->
+            </div>
             <header>
-                <h1 style="color: white">Prime Property Service Providers</h1>
+                <h1 style="color:black">Prime Property Service Providers</h1>
 				<nav class="codrops-demos">
 					
 					<a href="index.html" class="current-demo"></a>

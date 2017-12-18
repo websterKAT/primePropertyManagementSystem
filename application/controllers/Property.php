@@ -10,9 +10,16 @@ class Property extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('pagination');
 		$this->load->library('session');
+
 	}
 	
 	public function insertProperty() {
+		/*$this->load->library('form_validation');
+		$this->form_validation->set_rules("propertyType","Property Type",'required');
+		$this->form_validation->set_rules("district","First Name",'required|alpha');
+		$this->form_validation->set_rules("","Last Name",'required|alpha');
+		$this->form_validation->set_rules("pwd","Password",'required');
+		$this->form_validation->set_rules("confirmPwd","confirm password",'required');*/
 		$config = array(
 			'upload_path' =>"./uploads/" ,
 			'allowed_types'=>"jpg|png|jpeg",
@@ -23,8 +30,7 @@ class Property extends CI_Controller {
 
 			 );
 		$this->load->library('upload',$config);
-		if($this->upload->do_upload('imageName'))
-		{
+		if($this->upload->do_upload('imageName')) {
 			$data = array('upload_data' => $this->upload->data());
 			$upload_data = $this->upload->data();
 			$file_name = $upload_data['file_name'];
@@ -52,7 +58,6 @@ class Property extends CI_Controller {
 		else {
 			$error = array('error'=>$this->upload->display_errors());
 			print_r($error);
-			
 		}
 		
 	}
@@ -83,7 +88,7 @@ class Property extends CI_Controller {
 
 	}
 
-	public function deleteProperty($propertyId){
+	public function deleteProperty($propertyId) {
 		
 		$this->Property_model->dodDeleteProperty($propertyId);
 		$this->session->set_flashdata('success_msg', 'Successfully Deleted');
@@ -125,6 +130,14 @@ class Property extends CI_Controller {
 	public function approveProperty($propertyId){
 		$this->Property_model->doApproveProperty($propertyId);
 		$this->session->set_flashdata('success_msg', 'Successfully Approved');
+		// load library
+		//// set response format: xml or json, default json
+		$this->nexmo->set_format('json');
+		$from = 'Prime Property';
+		$to = '+94717594991';
+		$message = array('text' => 'PRIME ALERTS: New Offers are available. visit us: https://www.primepropertyservices.com ');
+		$response = $this->nexmo->send_message($from, $to, $message);
+		/*$this->nexmo->d_print($response);*/
 		$this->loadAllPendingPosts();
 	}
 
@@ -173,7 +186,7 @@ class Property extends CI_Controller {
 		}
 
 	}
-	public function searchProperties(){
+	public function searchProperties() {
 		$propertyType = $this->input->post('advance-search');
 		$query = $this->Property_model->getApprovedSelections($propertyType);
 		$data['SPROPERTIES'] =null;
@@ -193,7 +206,5 @@ class Property extends CI_Controller {
 
 	}
 
-	public function searchPropertiesFromKeyword(){
 
-	}
 }
