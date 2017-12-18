@@ -42,18 +42,19 @@
    <div class="row">
             <div class="col-md-12" style="background-color:#616161;padding:10px;">
                 <div class="input-group" id="adv-search">
+                   <!-- <form method="get" action="<?php /*echo base_url();*/?>index.php/Property/searchPropertiesFromKeyword">-->
                     <input type="text" class="form-control" placeholder="Search for Properties" />
                     <div class="input-group-btn">
                         <div class="btn-group" role="group">
                             <div class="dropdown dropdown-lg">
                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
                                 <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                    <form class="form-horizontal" role="form">
+                                    <form class="form-horizontal" method="post" action="<?php echo base_url();?>index.php/Property/searchProperties">
                                         <div class="form-group">
                                             <label for="filter">Search by</label>
                                             <select class="form-control" name="advance-search">
                                                 <option selected>All Properties</option>
-                                                <option>Lands</option>
+                                                <option>Land</option>
                                                 <option>Houses</option>
                                                 <option>Apartments</option>
                                                 <option>Portions and Rooms</option>
@@ -74,7 +75,7 @@
                                     </form>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+
                         </div>
                     </div>
                 </div>
@@ -90,7 +91,8 @@
           <li class="nav-item"><a class="nav-link active" href="<?php echo site_url('Property/loadAllPendingPosts')?>">Pending Posts</a></li>
 
         </ul>
-        </div>
+    </div>
+    
 
 
 

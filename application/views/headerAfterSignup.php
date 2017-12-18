@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+ <!DOCTYPE HTML>
 <html lang="en-us">
 <head>
 	<title>Preperty Management pvt ltd</title>
@@ -18,20 +18,20 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</a>			
-						<a class="brand" href="home.php">PRIME </a>				
+						<a class="brand" style="color:white;" href="home.php"><img src="<?php echo base_url(); ?>resources/images/logoHeader.png" style ="width:50px; hight:50px; border-radius:100px; "> <b>  PRIME </b></a>
 						<div class="nav-collapse collapse navigation-top pull-right">
 							<ul class="nav">
-								<li><a href="">Home</a></li>
-								<li><a href="<?php echo base_url(); ?>index.php/Property/loadPropertyDetails">My Account</a></li>
-								<li><a href="">Buildings</a></li>
-								<li><a href="">Houses</a></li>
-								<li><a href="">About Us</a></li>
-								<li><a href="<?php echo base_url(); ?>index.php/Users/userLogout">logout</a></li>
-								<li><a href="<?php echo base_url(); ?>index.php/Home/showAddProperty">AddProperty</a></li>
-								<li>You are Logged In as: <?php 
+								<li><a href="<?php echo base_url(); ?>index.php/Home/index"><h4 style="color:white; font-size:12px;">Home</h4></a></li>
+								<li><a href="<?php echo base_url(); ?>index.php/Property/loadPropertyDetails"><h4 style="color:white; font-size:12px;">My Account</h4></a></li>
+								<li><a href="<?php echo base_url(); ?>index.php/Landview/showlands"><h4 style="color:white; font-size:12px;">Lands</h4></a></li>
+								<li><a href="<?php echo base_url(); ?>index.php/Landview/showcoms"> <h4 style="color:white; font-size:12px;">Buildings</h4></a></li>
+								<li><a href="<?php echo base_url(); ?>index.php/Landview/showhouses"><h4 style="color:white; font-size:12px;">Houses</h4></a></li>
+								<li><a href="<?php echo base_url(); ?>index.php/Users/userLogout"><h4 style="color:white; font-size:12px;">logout</h4></a></li>
+								<li><a href="<?php echo base_url(); ?>index.php/Home/showAddProperty"><h4 style="color:white; font-size:12px;">AddProperty</h4></a></li>
+								<li><b>You Are Logged In As:</b> <?php 
 								$uname = $this->session->userdata('userName'); 
 								echo $uname
-								?>
+								 ?>
 									
 								</li>
 								

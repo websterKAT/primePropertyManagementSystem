@@ -44,7 +44,7 @@
 	<td> <?=$value->Users_username;?> </td>
 </tr>
 <p>
-<img alt="" src="<?php echo base_url(); ?>uploads/<?=$value->imgName;?>"> </p>
+<img alt="" height="400px;" width="500px;" src="<?php echo base_url(); ?>uploads/<?=$value->imgName;?>"> </p>
 
 </tbody>
 </table>

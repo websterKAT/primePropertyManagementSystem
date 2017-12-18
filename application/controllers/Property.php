@@ -8,10 +8,14 @@ class Property extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Property_model');
 		$this->load->helper('url');
+		$this->load->library('pagination');
 		$this->load->library('session');
+
 	}
 	
 	public function insertProperty() {
+		$this->load->library('form_validation');
+
 		$config = array(
 			'upload_path' =>"./uploads/" ,
 			'allowed_types'=>"jpg|png|jpeg",
@@ -43,6 +47,7 @@ class Property extends CI_Controller {
 
 			 );
 			$this->Property_model->insertProperty($property);
+			$this->session->set_flashdata('success_msg2', 'Your post has been added to the pending list');
 			$this->loadPropertyDetails();
 			
 			
@@ -82,7 +87,7 @@ class Property extends CI_Controller {
 
 	}
 
-	public function deleteProperty($propertyId){
+	public function deleteProperty($propertyId) {
 		
 		$this->Property_model->dodDeleteProperty($propertyId);
 		$this->session->set_flashdata('success_msg', 'Successfully Deleted');
@@ -111,9 +116,27 @@ class Property extends CI_Controller {
 		$this->load->view('propertyReview',$data);
 	}
 
-	public function approveProperty($propertyId){
+	public function loadPropertyForMoreInfo($propertyId) {
+		$query = $this->Property_model->getOnePropertyForReview($propertyId);
+		$data['PROPERTY'] = null;
+		if($query){
+			$data['PROPERTY'] = $query;
+		}
+		$this->load->view('basicAdmin');
+		$this->load->view('viewMoreProperty',$data);
+	}
+
+	public function approveProperty($propertyId) {
 		$this->Property_model->doApproveProperty($propertyId);
 		$this->session->set_flashdata('success_msg', 'Successfully Approved');
+		// load library
+		//// set response format: xml or json, default json
+		$this->nexmo->set_format('json');
+		$from = 'Prime Property';
+		$to = '+94717594991';
+		$message = array('text' => 'PRIME ALERTS: New Offers are available. visit us: https://www.primepropertyservices.com ');
+		$response = $this->nexmo->send_message($from, $to, $message);
+		/*$this->nexmo->d_print($response);*/
 		$this->loadAllPendingPosts();
 	}
 
@@ -124,13 +147,62 @@ class Property extends CI_Controller {
 		$this->loadAllPendingPosts();
 
 	}
-	public function loadAllApprovedPosts(){
-		$query = $this->Property_model->getAllApprovedProperty();
+	public function loadAllApprovedPosts() {
+		$query1 = $this->Property_model->getAllApprovedProperty();
+		$query2 = $this->Property_model->getAllApprovedPropertyForPagination();
 		$data['APROPERTIES'] = null;
-		if($query){	
-			$data['APROPERTIES'] = $query;
+		if($query2){
+			$data['APROPERTIES'] = $query2;
+			$config['base_url'] = "http://localhost/primePropertyManagementSystem/index.php/Property/loadAllApprovedPosts/";
+			$config['total_rows'] = $query1 	;
+			$config['per_page'] = 4;
+
+			$config['full_tag_open'] = '<ul class="pagination pagination-lg">';
+			$config['full_tag_close'] = '</ul>';
+
+			$config['first_tag_open'] = '<li>';
+			$config['last_tag_open'] = '<li>';
+
+			$config['next_tag_open'] = '<li>';
+			$config['prev_tag_open'] = '<li>';
+
+			$config['num_tag_open'] = '<li>';
+			$config['num_tag_close'] = '</li>';
+
+			$config['first_tag_close'] = '</li>';
+			$config['last_tag_close'] = '</li>';
+
+			$config['next_tag_close'] = '</li>';
+			$config['prev_tag_close'] = '</li>';
+
+			$config['cur_tag_open'] = '<li class="active"> <span> <b>';
+			$config['cur_tag_close'] = '</b></span></li>';
+			$this->pagination->initialize($config);
+
+			$this->load->view('basicAdmin');
+			$this->load->view('allApprovedProperties',$data);
+
 		}
-		$this->load->view('basicAdmin');
-		$this->load->view('allApprovedProperties',$data);
+
 	}
+	public function searchProperties() {
+		$propertyType = $this->input->post('advance-search');
+		$query = $this->Property_model->getApprovedSelections($propertyType);
+		$data['SPROPERTIES'] =null;
+		if($query) {
+			$data['SPROPERTIES'] = $query;
+			$this->load->view('basicAdmin');
+			$this->load->view('loadSearchedProperties',$data);
+		}
+		else {
+			$this->session->set_flashdata('no_result', 'no_result');
+			$this->load->view('basicAdmin');
+			$this->load->view('showingEmptyResult');
+		}
+
+
+
+	}
+
+
 }

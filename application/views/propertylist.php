@@ -34,11 +34,21 @@
       if($success_msg){
       ?>
         <div class="alert alert-success">
-        <strong>Success!</strong> Succefully Deleted the Post
+        <strong>Success!</strong> Successfully Deleted the Post
         </div>
        <?php
           }
         ?>
+      <?php
+      $success_msg2= $this->session->flashdata('success_msg2');
+      if($success_msg2){
+        ?>
+        <div class="alert alert-success">
+          <strong>Success!</strong> Your post has been added to the pending list
+        </div>
+        <?php
+      }
+      ?>
     </table>
     <?php } ?>
     <?php 
@@ -71,7 +81,7 @@
       	<td><?=$value->city;?></td>
       	<td><?=$value->revenue;?></td>
       	<td><?=$value->Date;?></td> 
-      	<td><a href="<?php echo site_url('Property/deleteProperty/'.$value->idproperty);?>" type="button" class="btn btn-danger btn-xs">Delete</button></td>
+      	<td><a href="<?php echo site_url('Property/deleteProperty/'.$value->idproperty);?>" type="button" class="btn btn-danger btn-xs">Delete</a></td>
         </tr>
       	<?php }?>	
       </tbody>

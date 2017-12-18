@@ -15,31 +15,33 @@
         <link rel="shortcut icon" href="../favicon.ico"> 
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>resources/css/demo.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>resources/css/style.css" />
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>resources/css/animate-custom.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>resources/css/animate-custom.css" />
+
+
     </head>
     <body>
         <div class="container">
-            <!-- Codrops top bar -->
+
             <div class="codrops-top">
-                <a href="">
+               <!-- <a href="">
                     <strong>&laquo; Prime Property Management Service Providers: </strong>
-                </a>
+                </a> -->
                 <span class="right">
                     <a href=" http://tympanus.net/codrops/2012/03/27/login-and-registration-form-with-html5-and-css3/">
-                       
+
                     </a>
                 </span>
                 <div class="clr"></div>
-            </div><!--/ Codrops top bar -->
+            </div>
             <header>
-                <h1 style="color: white">Prime Property Service Providers</h1>
-				<nav class="codrops-demos">
-					
-					<a href="index.html" class="current-demo"></a>
-					
-				</nav>
+                <h1 style="color:black">Prime Property Service Providers</h1>
+                <nav class="codrops-demos">
+                    
+                   <!-- <a href="index.html" class="current-demo"></a>-->
+                    
+                </nav>
             </header>
-            <section>				
+            <section>               
                 <div id="container_demo" >
                     <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
                     <a class="hiddenanchor" id="toregister"></a>
@@ -51,14 +53,14 @@
                             $error_msg= $this->session->flashdata('error_msg');
                             if($success_msg){
                                 ?>
-                                <div class="alert alert-success">
+                                <div class="alert alert-success" style="color: #00CC00;font-size: 25px;">
                                     <?php echo $success_msg; ?>
                                 </div>
                             <?php
                             }
                             if($error_msg){
                             ?>
-                                <div class="alert alert-danger">
+                                <div class="alert alert-danger" style="color: red;font-size:25px;">
                                     <?php echo $error_msg; ?>
                                 </div>
                             <?php
@@ -75,16 +77,16 @@
                                     <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" /> 
                                 </p>
                                 <p class="keeplogin"> 
-									<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
-									<label for="loginkeeping">Keep me logged in</label>
-								</p>
+                                    <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
+                                    <label for="loginkeeping">Keep me logged in</label>
+                                </p>
                                 <p class="login button"> 
                                     <input type="submit" value="Login" /> 
-								</p>
+                                </p>
                                 <p class="change_link">
-									Not a member yet ?
-									<a href="#toregister" class="to_register">Join us</a>
-								</p>
+                                    Not a member yet ?
+                                    <a href="#toregister" class="to_register">Join us</a>
+                                </p>
                             </form>
                         </div>
 
@@ -123,15 +125,15 @@
                                     <input id="passwordsignup_confirm" name="confirmpassword" required="required" type="password" placeholder="eg. X8df!90EO"/>
                                 </p>
                                 <p class="signin button"> 
-									<input type="submit" value="Sign up"/> 
-								</p>
+                                    <input type="submit" value="Sign up"/> 
+                                </p>
                                 <p class="change_link">  
-									Already a member ?
-									<a href="#tologin" class="to_register"> Go and log in </a>
-								</p>
+                                    Already a member ?
+                                    <a href="#tologin" class="to_register"> Go and log in </a>
+                                </p>
                             </form>
                         </div>
-						
+                        
                     </div>
                 </div>  
             </section>
